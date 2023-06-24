@@ -1,0 +1,298 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #333;
+}
+.container {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (min-width: 768px) {
+    .container {
+        width: 750px;
+    }
+}
+@media (min-width: 992px) {
+    .container {
+        width: 970px;
+    }
+}
+@media (min-width: 1200px) {
+    .container {
+        width: 1170px;
+    }
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0 0;
+}
+header .title, 
+header .info {
+    font-size: 20px;
+    color: white;
+}
+header .info span {
+    color: red;
+    font-weight: bold;
+}
+.body-of-game {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    gap: 10px;
+}
+@media (max-width: 767px) {
+    .body-of-game {
+        flex-direction: column;
+    }
+}
+.body-of-game .game-pic {
+    width: 50%;
+    height: 350px;
+    background-color: #aaa;
+    position: relative;
+}
+@media (max-width: 767px) {
+    .body-of-game .game-pic {
+        width: 90%;
+    }
+}
+.game-pic .draw {
+    position: relative;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    height: 100%;
+    width: 200px;
+}
+.game-pic .draw .stand {
+    position: absolute;
+    left: 0;
+    bottom: 10px;
+    width: 50px;
+    height: 5px;
+    background-color: black;
+}
+.game-pic .draw .bole {
+    position: absolute;
+    left: 24px;
+    bottom: 10px;
+    width: 5px;
+    height: 90%;
+    background-color: black;
+}
+.game-pic .draw .flag-bole {
+    position: absolute;
+    left: 24px;
+    top: 40px;
+    width: 100px;
+    height: 5px;
+    background-color: black;
+}
+
+.game-pic .draw .rope {
+    position: absolute;
+    left: 124px;
+    top: 40px;
+    width: 5px;
+    height: 40px;
+    background-color: black;
+}
+.game-pic .draw .rope::before {
+    content: "";
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    /* background-color: white; */
+    border: 5px dotted black;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 40px;
+}
+.game-pic .draw .face {
+    position: absolute;
+    left: 102px;
+    top: 90px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 5px solid black;
+}
+.game-pic .draw .face::before {
+    content: "";
+    position: absolute;
+    bottom: -125px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 5px;
+    height: 120px;
+    background-color: black;
+}
+
+.game-pic .draw .hands {
+    position: absolute;
+    left: 125px;
+    top: 170px;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background-color: black;
+}
+
+.game-pic .draw .hands::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: -25px;
+    height: 80px;
+    width: 5px;
+    transform: rotate(45deg) translate(-50% , -50%);
+    background-color: black;
+}
+.game-pic .draw .hands::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: -28px;
+    height: 80px;
+    width: 5px;
+    transform: rotate(-45deg) translate(-50% , -50%);
+    background-color: black;
+}
+
+.game-pic .draw .legs {
+    /* background-color: white; */
+    position: absolute;
+    left: 122px;
+    top: 250px;
+    width: 10px;
+    height: 10px;
+}
+.game-pic .draw .legs::before {
+    content: "";
+    position: absolute;
+    height: 80px;
+    width: 5px;
+    left: 30px;
+    top: -3px;
+    background-color: black;
+    transform: rotate(137deg)
+}
+.game-pic .draw .legs::after {
+    content: "";
+    position: absolute;
+    height: 80px;
+    width: 5px;
+    left: -25px;
+    top: -3px;
+    background-color: black;
+    transform: rotate(-137deg);
+}
+.body-of-game .game-letters {
+    display: grid;
+    grid-template-columns: repeat(7, calc(100% /7));
+    flex-basis: 50%;
+    text-align: center;
+}
+.body-of-game .game-letters span {
+    background-color: tomato;
+    margin: 5px;
+    padding: 10px;
+    font-size: 20px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+.non-active {
+    background-color: #eee !important ;
+    pointer-events: none;
+
+}
+.word-place {
+    width: 100%;
+    background-color: #aaa;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+.word-place span {
+    width: 50px;
+    height: 80px;
+    height: 50px;
+    margin: 10px;
+    background-color: #eee;
+    border-bottom: 3px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    font-weight: bold;
+}
+.word-place span.space {
+    background: none;
+    border-bottom: none;
+    position: relative;
+}
+.space::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: 25px;
+    height: 5px;
+    background-color: black;
+}
+.popup {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 30px;
+    color: white;
+    text-align: center;
+    background-color: tomato;
+    height: 300px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    width: 65%;
+    line-height: 1.7;
+}
+.overlay {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0 , 0 , .3);
+    z-index: 99;
+}
+button {
+    position: absolute;
+    padding: 10px;
+    right: 15px;
+    bottom: 15px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    font-size: 15px;
+}
